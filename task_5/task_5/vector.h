@@ -556,11 +556,10 @@ class Vector {
         return Iterator(ptr + our_size - 1);
     }
 
+    bool empty() const noexcept { return our_size == 0; }
 
-    bool empty() const { return our_size == 0; }
 
-
-    Iterator erase(Iterator pos) noexcept {
+    Iterator erase(Iterator pos) {
         if (pos < begin() || pos >= end()) {
             throw std::out_of_range("Invalid iterator position");
         }
